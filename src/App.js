@@ -1,28 +1,33 @@
+import '../App.css';
+import MasonryLayout from './MasonryLayout'
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Tile from './Tile';
+let colors = ['#814374','#51A39D','#8C489F','#B7695C','#C3C3E5','#CDBB79','#F2F2F2','#06425C']
 
-class App extends Component {
-  render() {
+export default class App extends React.Component{
+  renderTiles = () => {
+    {
+      let tiles = []
+      for(let i=0;i<30;i++) {
+        let color = Math.floor(Math.random()*colors.length);
+        let height = 100 + Math.ceil(Math.random()*2)*100
+        tiles.push(<Tile color={colors[color]} height={height}/>)
+      }
+      return tiles
+    } 
+  }
+  render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+        <div className="masonry-container">
+          <MasonryLayout breakPoints={this.props.breakPoints}>
+            {
+              this.renderTiles()
+            }
+          </MasonryLayout>
+        </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
