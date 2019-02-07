@@ -12,3 +12,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.masonry-container{
+	width: 80%;
+	margin: auto;
+	margin-top: 10px;
+}
+.masonry{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: stretch;
+	width: 100%;
+	margin: auto;
+}
+.column{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: stretch;
+	flex-grow: 1;
+}
+.tile{
+	margin: 4px;
+}
+.title div{
+	width: 100%;
+}
